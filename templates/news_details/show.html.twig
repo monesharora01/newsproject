@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}NewsDetails{% endblock %}
+
+{% block body %}
+    <h1>NewsDetails</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ news_detail.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ news_detail.title }}</td>
+            </tr>
+            <tr>
+                <th>ShortDescription</th>
+                <td>{{ news_detail.shortDescription }}</td>
+            </tr>
+            <tr>
+                <th>Picture</th>
+                <td>{{ news_detail.picture }}</td>
+            </tr>
+            <tr>
+                <th>CreatedAt</th>
+                <td>{{ news_detail.createdAt ? news_detail.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>UpdatedAt</th>
+                <td>{{ news_detail.updatedAt ? news_detail.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_news_details_index') }}">back to list</a>
+
+    <a href="{{ path('app_news_details_edit', {'id': news_detail.id}) }}">edit</a>
+
+    {{ include('news_details/_delete_form.html.twig') }}
+{% endblock %}
